@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - peXverse</title>
+    <link rel="icon" type="image/x-icon" href="./images/pexverse-logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="profile.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Navbar (same as dashboard) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand me-2" href="/">
+                <!-- <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="16" alt="MDB Logo"
+                    loading="lazy" style="margin-top: -1px;" /> -->
+                <span class="fs-4"><span class="header_logo_normal_text">pe</span><span
+                        class="header_logo_normal_special_text">X</span><span
+                        class="header_logo_normal_text">verse</span></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarButtonsExample"
+                aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+
+                <div class="d-flex align-items-center">
+                    <!-- <a href="index.html">
+                        <button type="button" style="color:orange;" class="btn btn-link px-3 me-2">
+                            Home
+                        </button>
+                    </a> -->
+                    <a href="dashboard.html">
+                        <button type="button" style="color:orange;" class="btn btn-link px-3 me-2">
+                            Dashboard
+                        </button>
+                    </a>
+                    <a href="profile.html">
+                        <button type="button" style="background-color: orange; color:white;" class="btn px-3 me-2">
+                            Profile
+                        </button>
+                    </a>
+                    <button type="button" style="color:orange;" class="btn btn-link px-3 me-2" id="logout-btn">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="profile-container">
+            <!-- User Profile Section -->
+            <div class="user-profile mb-5">
+                <h2>My Profile</h2>
+                <form id="user-profile-form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" id="fullName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" id="email" class="form-control" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" id="phone" class="form-control" pattern="[0-9]{10}">
+                                <small class="text-muted">10-digit mobile number</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Address Line 1</label>
+                                <input type="text" id="addressLine1" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Address Line 2</label>
+                                <input type="text" id="addressLine2" class="form-control">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input type="text" id="city" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>State</label>
+                                        <input type="text" id="state" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Postal Code</label>
+                                        <input type="text" id="postalCode" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <input type="text" id="country" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label>Bio</label>
+                        <textarea id="bio" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Update Profile</button>
+                </form>
+            </div>
+
+            <!-- Pets Section -->
+            <div class="pets-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>My Pets</h2>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPetModal">
+                        Add Pet
+                    </button>
+                </div>
+                <div id="pets-container" class="row">
+                    <!-- Pet cards will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Pet Modal -->
+    <div class="modal fade" id="addPetModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="petModalTitle">Add New Pet</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-pet-form">
+                        <div class="form-group mb-3">
+                            <label>Pet Name</label>
+                            <input type="text" id="petName" class="form-control" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Pet Type</label>
+                            <select id="petType" class="form-control" required>
+                                <option value="dog">Dog</option>
+                                <option value="cat">Cat</option>
+                                <option value="bird">Bird</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Age</label>
+                            <input type="number" id="petAge" class="form-control" min="0" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Pet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="profile.js"></script>
+</body>
+</html> 

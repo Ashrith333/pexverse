@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: pexverse
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.x
+    includeFiles:
+      - Website/**
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    staticPublishPath: ./Website 
